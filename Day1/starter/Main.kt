@@ -6,7 +6,4 @@
 
 fun main() {
     // TODO: ここにコードを書いてください
-    println("Hello, Kotlin!")
-    print("test")
-    print(" test")
 }
