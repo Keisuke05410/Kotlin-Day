@@ -8,7 +8,10 @@ fun main() {
     var passed = 0
     var failed = 0
 
-    // テスト1: valの動作確認
+    println("=== Day2: 変数宣言（val/var） テスト ===")
+    println()
+
+    // テスト1: valの基本動作確認
     try {
         val testName = "テスト"
         assert(testName == "テスト") { "valで宣言した変数の値が正しくありません" }
@@ -19,11 +22,11 @@ fun main() {
         failed++
     }
 
-    // テスト2: varの動作確認
+    // テスト2: varの再代入確認
     try {
-        var testCount = 0
-        testCount = 1
-        assert(testCount == 1) { "varで宣言した変数の再代入が正しくありません" }
+        var testHobby = "プログラミング"
+        testHobby = "Kotlin学習"
+        assert(testHobby == "Kotlin学習") { "varで宣言した変数の再代入が正しくありません" }
         println("✓ テスト2: varで変数を宣言し再代入できる")
         passed++
     } catch (e: Exception) {
@@ -31,48 +34,45 @@ fun main() {
         failed++
     }
 
-    // テスト3: 型推論の確認
-    try {
-        val inferredString = "Hello"
-        val inferredInt = 42
-        val inferredDouble = 3.14
-        assert(inferredString is String) { "文字列の型推論が正しくありません" }
-        assert(inferredInt is Int) { "整数の型推論が正しくありません" }
-        assert(inferredDouble is Double) { "小数の型推論が正しくありません" }
-        println("✓ テスト3: 型推論が正しく動作する")
-        passed++
-    } catch (e: Exception) {
-        println("✗ テスト3: 型推論が正しく動作する - ${e.message}")
-        failed++
-    }
-
-    // テスト4: 計算と変数の組み合わせ
+    // テスト3: 年齢計算の確認
     try {
         val birthYear = 2000
         val currentYear = 2024
         val age = currentYear - birthYear
         assert(age == 24) { "計算結果が正しくありません: expected 24, got $age" }
-        println("✓ テスト4: 変数を使った計算ができる")
+        println("✓ テスト3: 変数を使った年齢計算ができる")
         passed++
     } catch (e: Exception) {
-        println("✗ テスト4: 変数を使った計算ができる - ${e.message}")
+        println("✗ テスト3: 変数を使った年齢計算ができる - ${e.message}")
         failed++
     }
 
-    // テスト5: 文字列テンプレートの確認
+    // テスト4: 文字列テンプレートの確認
     try {
-        val name = "Kotlin"
-        val message = "Hello, $name!"
-        assert(message == "Hello, Kotlin!") { "文字列テンプレートが正しくありません" }
-        println("✓ テスト5: 文字列テンプレートが使える")
+        val name = "太郎"
+        val message = "名前: $name"
+        assert(message == "名前: 太郎") { "文字列テンプレートが正しくありません" }
+        println("✓ テスト4: 文字列テンプレートが使える")
         passed++
     } catch (e: Exception) {
-        println("✗ テスト5: 文字列テンプレートが使える - ${e.message}")
+        println("✗ テスト4: 文字列テンプレートが使える - ${e.message}")
         failed++
     }
 
     println()
     println("結果: $passed 成功, $failed 失敗")
+    println()
+    println("=== あなたの実装を確認 ===")
+    println("テスト方法: ./run.sh Day2 starter を実行して出力を確認してください")
+    println()
+    println("期待される出力形式:")
+    println("  名前: [あなたの名前]")
+    println("  年齢: [計算された年齢]歳")
+    println("  趣味: Kotlin学習")
+    println()
+    println("確認ポイント:")
+    println("  - 趣味が「Kotlin学習」になっているか（varで再代入）")
+    println("  - 年齢が正しく計算されているか（2024 - 生まれた年）")
 
     if (failed > 0) {
         throw RuntimeException("テストが失敗しました")
