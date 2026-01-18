@@ -20,6 +20,8 @@ fun main() {
 
 `println()`関数を使って文字列を出力します。
 
+ln: line
+
 ```kotlin
 println("出力したい文字列")
 ```
