@@ -4,3 +4,4 @@
 |-----|---------|---------|-------|
 | Day1 | Hello World | 基礎構文 | |
 | Day2 | 変数宣言（val/var） | 基礎構文 | |
+| Day3 | 基本データ型（Int, Double, String, Boolean） | 基礎構文 | |
